@@ -8,6 +8,45 @@
   /** @ngInject */
   function BookConsultationController($timeout, webDevTec, toastr) {
     var vm = this;
+    vm.patients = [
+      {
+        id: 12,
+        name: 'Yourself',
+        age: 20
+      },
+      {
+        id: 13,
+        name: 'Sarah',
+        age: 22
+      },
+      {
+        id: 14,
+        name: 'Someone Else'
+      }
+    ];
+
+    vm.healthCareProfession = [
+      {
+        id: 1,
+        name: 'GP',
+        description: 'male'
+      },
+      {
+        id: 2,
+        name: 'Nurse',
+        description: 'Female'
+      },
+      {
+        id: 3,
+        name: 'Therapist',
+        description: 'Proxy'
+      },
+      {
+        id: 4,
+        name: 'Specialist',
+        description: ''
+      }
+    ];
 
     vm.awesomeThings = [];
     vm.classAnimation = '';
