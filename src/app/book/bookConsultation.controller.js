@@ -1,78 +1,51 @@
 (function() {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('babylone')
-    .controller('BookConsultationController', BookConsultationController);
+    angular
+        .module('babylone')
+        .controller('BookConsultationController', BookConsultationController);
 
-  /** @ngInject */
-  function BookConsultationController($timeout, webDevTec, toastr) {
-    var vm = this;
-    vm.patients = [
-      {
-        id: 12,
-        name: 'Yourself',
-        age: 20
-      },
-      {
-        id: 13,
-        name: 'Sarah',
-        age: 22
-      },
-      {
-        id: 14,
-        name: 'Someone Else'
-      }
-    ];
+    /** @ngInject */
+    function BookConsultationController($timeout, $log, consultationService, $uibModal) {
+        var vm = this;
 
-    vm.healthCareProfession = [
-      {
-        id: 1,
-        name: 'GP',
-        description: 'male'
-      },
-      {
-        id: 2,
-        name: 'Nurse',
-        description: 'Female'
-      },
-      {
-        id: 3,
-        name: 'Therapist',
-        description: 'Proxy'
-      },
-      {
-        id: 4,
-        name: 'Specialist',
-        description: ''
-      }
-    ];
+        /** Service to get the patients/user & releative list & details*/
+        consultationService.getPatients().then(function(data){
+            vm.patients = data;
+        });
 
-    vm.awesomeThings = [];
-    vm.classAnimation = '';
-    vm.creationDate = 1459368711387;
-    vm.showToastr = showToastr;
+        /** Service to get the professional health care list & details*/
+        consultationService.gethealthCareProfession().then(function(data){
+            vm.healthCareProfession = data;
+        })
 
-    activate();
+        /** Service to get the professional health care list & details*/
+        consultationService.getDoctorDetails().then(function(data){
+            vm.doctors = data;
+        })
 
-    function activate() {
-      getWebDevTec();
-      $timeout(function() {
-        vm.classAnimation = 'rubberBand';
-      }, 4000);
+        vm.items = ['item1', 'item2', 'item3'];
+        vm.open = open;
+
+        /** Using ui-bootstrap modal*/
+        function open(size) {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'modal.html',
+                controller: 'ModalController',
+                size: size,
+                resolve: {
+                    items: function () {
+                        return vm.items;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (selectedItem) {
+                    vm.selected = selectedItem;
+                }, function () {
+                    $log.info('Modal dismissed at: ' + new Date());
+                });
+        }
     }
-
-    function showToastr() {
-      toastr.info('Fork <a href="https://github.com/Swiip/generator-gulp-angular" target="_blank"><b>generator-gulp-angular</b></a>');
-      vm.classAnimation = '';
-    }
-
-    function getWebDevTec() {
-      vm.awesomeThings = webDevTec.getTec();
-
-      angular.forEach(vm.awesomeThings, function(awesomeThing) {
-        awesomeThing.rank = Math.random();
-      });
-    }
-  }
 })();

@@ -1,0 +1,27 @@
+[
+    {
+        "id":114,
+        "name":"Dr. John Sabastin",
+        "gender":"Male",
+        "details":"Surgeon"
+    },
+    {
+        "id":115,
+        "name":"Dr. Anitha Samuel",
+        "gender":"Female",
+        "details":"Dentist"
+    },
+    {
+        "id":116,
+        "name":"Dr. Hisenberg",
+        "gender":"Male",
+        "details":"Breaking Bad"
+
+    },
+    {
+        "id":117,
+        "name":"Dr. Dexter",
+        "gender":"Male",
+        "details":"Serial Killer"
+    }
+]
