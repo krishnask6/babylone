@@ -63,13 +63,14 @@
         $http({
           method: 'POST',
           url: constant.baseUrl + constant.insert,
-          data: angular.toJson(formData)
+          data: angular.toJson(payload)
         }).then(function (response) {
-          q.resolve(response.data);
+          deferred.resolve(response.data);
         }, function (error) {
-          q.reject(error.data);
+          deferred.reject(error.data);
         });
-        return q.promise;
+        return deferred.promise;
       }
+    }
 
 })();

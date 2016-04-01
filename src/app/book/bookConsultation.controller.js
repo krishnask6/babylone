@@ -27,11 +27,14 @@
             vm.items = ['item1', 'item2', 'item3'];
             vm.open = open;
             vm.updateSelection = updateSelection;
+            vm.bookAppointment = bookAppointment;
             vm.appointment = {};
+            vm.disableSubmitButton = disableSubmitButton;
             init();
 
             function init(){
                 // initialise something here
+                vm.appointment = {};
             }
 
             /** Using ui-bootstrap modal
@@ -66,15 +69,16 @@
              *  @param {int} position position of the item selected
              *  @param {Array} items list of items in the checkbox list
             */
-            function updateSelection(position, items) {
+            function updateSelection(position, items, type) {
+                var selectedId;
                 angular.forEach(items, function (item, index) {
                     if (position !== index) {
                         item.selected = false;
                     } else {
-                        vm.appointment.patient = item.id;
-                        vm.appointment.healthCareProfessional = item.id;
+                        selectedId = item.id;
                     }
                 });
+                vm.appointment[type] = selectedId;
             }
 
             /**
@@ -96,6 +100,15 @@
                 } catch (error) {
                     $log.error('Error in fetching appointment data:' + error);
                 }
+                alert("Your appointment is fixed");
+                //@todo Reset the values
+            }
+
+            /**
+             * disableSubmitButton - disable submit button if none of the items are filled
+             */
+            function disableSubmitButton() {
+                return !(vm.appointment && (vm.appointment.patient.length > 0 && vm.appointment.professional.length > 0));
             }
         }
 })();

@@ -5,11 +5,10 @@
 
 'use strict';
 
-var MainPage = function() {
+var BookConsultationPage = function() {
   this.jumbEl = element(by.css('.jumbotron'));
-  this.h3El = this.jumbEl.element(by.css('h3'));
-  this.imgEl = this.jumbEl.element(by.css('img'));
-  this.thumbnailEls = element(by.css('body')).all(by.repeater('awesomeThing in main.awesomeThings'));
+  this.patientsList = this.jumbEl.element(by.css('patients'));
+  this.doctorsList = this.jumbEl.element(by.css('doctors'));
 };
 
 module.exports = new MainPage();
