@@ -33,6 +33,7 @@
           return deferred.promise;
       };
 
+      /** Service to get the doctor list and details from the API*/
       this.getDoctorDetails = function () {
           var deferred = new $q.defer();
           /** Using temporary JSON files to mock the data */
@@ -45,9 +46,6 @@
           return deferred.promise;
       };
 
-      this.getGoalsForOwner = function (ownerId) {
-          return $http.get('/api/goalsForOwner/' + ownerId);
-      };
       /**
        * @name submitAppointment
        * @desc Method to store the appointment.

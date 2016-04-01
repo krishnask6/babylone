@@ -93,18 +93,16 @@
       <h3 class="modal-title">Select Doctor</h3>
   </div>
   <div class="modal-body">
-    <ul>
+    <ul style="list-style: none;">
       <li ng-repeat="item in vm.items">
         <!-- <button type="button" ng-click="vm.selected()">{{ item.name }}</button> -->
         <!-- <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item.name }}</a> -->
-        <button ng-click="vm.selected(item); selected.item = item">{{ item.name }}</button>
+        <button ng-click="vm.selected(item); vm.selected.item = item">{{ item.name }}</button>
       </li>
     </ul>
-      Selected: <b>{{ selected.item.name }}</b>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
-
+    <button class="btn btn-info" type="button" ng-click="vm.cancel()">Cancel</button>
   </div>
 </script>
 

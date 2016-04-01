@@ -57,6 +57,7 @@
 
                 modalInstance.result.then(function (selectedItem) {
                     vm.appointment.doctor = selectedItem.id;
+                    vm.selectedDoctor = selectedItem;
                 }, function () {
                     $log.info('Modal dismissed at: ' + new Date());
                 });
