@@ -2,15 +2,20 @@
     {
        "id":12,
        "name":"Yourself",
-       "age":20
+       "age":20,
+       "logo":"user_male_add.png"
     },
     {
-       "id":13,
-       "name":"Sarah",
-       "age":22
+      "id":13,
+      "name":"Sarah",
+      "age":22,
+      "logo":"user_female_add.png"
+
     },
     {
-       "id":14,
-       "name":"Someone Else"
+      "id":14,
+      "name":"Someone Else",
+      "logo":"user_others.png"
+
     }
 ]

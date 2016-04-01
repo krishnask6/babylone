@@ -11,8 +11,6 @@
         vm.bookDoctor = bookDoctor;
 
         /** action method for booking a consultation*/
-        function bookDoctor() {
-
-        }
+        function bookDoctor() {}
     }
 })();

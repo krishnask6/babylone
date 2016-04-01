@@ -1,23 +1,26 @@
 [
     {
-        "id":12,
-        "name":"GP",
-        "details":"Male"
+      "id":12,
+      "name":"GP",
+      "details":"Male",
+      "logo":"doctor_icon.png"
     },
     {
-        "id":13,
-        "name":"Nurse",
-        "details":"Female"
+      "id":13,
+      "name":"Nurse",
+      "details":"Female",
+      "logo":"nurse.png"
     },
     {
-        "id":14,
-        "name":"Therapist",
-        "details":"Proxy"
-
+      "id":14,
+      "name":"Therapist",
+      "details":"Proxy",
+      "logo":"therapist.png"
     },
     {
-        "id":14,
-        "name":"Specialist",
-        "details":""
+      "id":14,
+      "name":"Specialist",
+      "details":"",
+      "logo":"therapist.png"
     }
 ]

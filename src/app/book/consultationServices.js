@@ -18,7 +18,7 @@
                   deferred.reject(response.data);
               });
           return deferred.promise;
-      }
+      };
 
       /** Service to get the health care profession details from the API*/
       this.gethealthCareProfession = function () {
@@ -31,7 +31,7 @@
                   deferred.reject(response.data);
               });
           return deferred.promise;
-      }
+      };
 
       this.getDoctorDetails = function () {
           var deferred = new $q.defer();
@@ -43,14 +43,10 @@
                   deferred.reject(response.data);
               });
           return deferred.promise;
-      }
+      };
 
       this.getGoalsForOwner = function (ownerId) {
           return $http.get('/api/goalsForOwner/' + ownerId);
-      }
-
-      this.gethealthCareProfession = function (patientId) {
-          return $http.get('/api/gethealthCareProfession/' + patientId);
-      }
+      };
     }
 })();
