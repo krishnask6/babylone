@@ -49,12 +49,14 @@ Babylone application written using Angular, node.
   $ gulp serve - To run the application
   $ gulp test - To run the unit test cases.
   $ gulp protractor - To run the e2e test case.
- 
+  ```
 * It will open the app in your default browser. 
 
 ### Technical Details
-
+ ```
 Currently following use case is implemented:
 1. Home page - Display a home page with contents and book consultation button
-1. Book consultation page -  Displays a page with required details to be filled by the patient and submit consultation page. Completed with unit test and e2e test cases.
+2. Book consultation page -  Displays a page with required details to be filled by the patient and submit consultation page. Completed with unit test and e2e test cases.
+ ```
+
 
