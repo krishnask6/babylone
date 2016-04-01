@@ -5,11 +5,11 @@
     <div class="row">
       <h3>BOOK THE CONSULTATION FOR<h3>
       <div class="col-xs-6 col-sm-4" ng-repeat="patient in book.patients">
-        <button ng-disabled="patient.selected" ng-click="updateSelection($index, book.patients)" >
+        <button ng-disabled="patient.selected" ng-click="book.updateSelection($index, book.patients)" >
           <img class="pull-right" ng-src="assets/images/{{ patient.logo }}" alt="{{ patient.name }}">
         </button>
         <div class="caption">
-          <input ng-model="patient.selected" ng-click="updateSelection($index, book.patients)" type="checkbox" />
+          <input ng-model="patient.selected" ng-click="book.updateSelection($index, book.patients)" type="checkbox" />
           <h5>{{ patient.name }}</h5>
         </div>
       </div>
@@ -19,12 +19,13 @@
 
     <div class="row">
       <h3>SELECT A HEALTHCARE PROFESSION</h3>
-      <div class="col-xs-6 col-sm-3" ng-repeat="professional in book.healthCareProfessional">
-        <button ng-disabled="professional.selected" ng-click="updateSelection($index, book.healthCareProfessional)" >
+      <div class="col-xs-6 col-sm-3" ng-repeat="professional in book.healthCareProfessionals">
+        <button ng-disabled="professional.selected" ng-click="book.updateSelection($index, book.healthCareProfessionals)" >
           <img class="pull-right" ng-src="assets/images/{{ professional.logo }}" alt="{{ professional.name }}">
         </button>
         <div class="caption">
-          <h5>{{ professional.name }}</h5>
+          <input ng-model="professional.selected" ng-click="book.updateSelection($index, book.healthCareProfessionals)" type="checkbox" />
+          <h5>{{ patient.name }}</h5>
         </div>
       </div>
     </div>
