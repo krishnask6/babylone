@@ -14,8 +14,8 @@
         </div>
       </div>
     </div>
-
     <br>
+    <div class="line"></div>
 
     <div class="row">
       <h3>SELECT A HEALTHCARE PROFESSION</h3>
@@ -25,25 +25,26 @@
         </button>
         <div class="caption">
           <input ng-model="professional.selected" ng-click="book.updateSelection($index, book.healthCareProfessionals)" type="checkbox" />
-          <h5>{{ patient.name }}</h5>
+          <h5>{{ professional.name }}</h5>
         </div>
       </div>
     </div>
 
     <br>
+    <div class="line"></div>
 
     <div class="row">
       <h3>SELECT THE DOCTOR<h3>
-      <div class="col-xs-6 col-sm-4">
+      <div class="col-md-3 col-md-offset-5">
         <button type="button" class="btn btn-lg btn-success btn-doctor" ng-click="book.open('sm')">DR. PAUL DEVIS</button>
       </div>
     </div>
 
     <br>
-
+    <div class="line"></div>
     <div class="row">
       <h3>NEXT AVAILABLE APPOINTMENT<h3>
-      <div class="col-xs-6 col-sm-4">
+      <div class="col-md-3 col-md-offset-5">
         <div class="caption">
           <button type="button" class="btn btn-lg btn-success" ng-click="book.open()">MAY 30 AT 14:00</button>
         </div>
@@ -51,12 +52,15 @@
     </div>
 
     <br>
+    <div class="line"></div>
 
     <div class="row">
       <h3>Get the best from your consultation by uploading a photo or a note</h3>
       <div class="col-sm-9">
+      <br>
+      <br>
         <div class="caption">
-           <div class="row">
+           <div class="row" style="margin-left:100px;">
             <div class="col-xs-8 col-sm-6">
               <button type="button" class="btn btn-lg btn-success" ng-click="book.showToastr()">Attach</button>
             </div>
@@ -69,14 +73,18 @@
     </div>
 
     <br>
-
+    <br>
+    <br>
+    <div class="line"></div>
+    <br>
+    <br>
+    <br>
     <div class="row">
-      <div class="col-xs-6 col-sm-3">
+      <div class="col-md-3 col-md-offset-5">
         <div class="caption">
-          <button type="button" class="btn btn-lg btn-success" ng-click="book.showToastr()">BOOK CONSULTATION</button>
+          <button type="button" class="btn btn-lg btn-success btn-consultation" ng-click="book.bookAppointment()">BOOK CONSULTATION</button>
         </div>
       </div>
     </div>
-
   </div>
 </div>

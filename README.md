@@ -1,29 +1,60 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+babylone
+======================
 
-### What is this repository for? ###
+Babylone application written using Angular, node.
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+### Dependencies
 
-### How do I get set up? ###
+* AngularJS 1.5.3
+* NodeJs 5.10.0 +
+* NPM
+* Bootstrap 3.3.6
+* Gulp (to build the project) 3.9.0
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+## Installing the Application
 
-### Contribution guidelines ###
+## prerequisite.
+* Install NodeJs
 
-* Writing tests
-* Code review
-* Other guidelines
+* First install bower and gulp globally if you don't have already:
+ ```
+  $ npm install -g gulp
+  $ npm install -g bower 
+ ```
 
-### Who do I talk to? ###
+* Clone git repo and cd to server folder: 
+ ``` 
+  $ git clone https://github.com/sagarbasavaraj/formbuilder
+ ```
+  
+* Install required node packages: 
+ 
+ *Client side install
+ ```
+ *Install node pacakages.
+  ```
+  $npm install
+  ```
+* And finally, install bower dependencies: 
+ ``` 
+  $ bower install 
+ ``` 
+ 
+## Launching the App
 
-* Repo owner or admin
-* Other community or team contact
+* Start the gulp: 
+ ```
+  $ gulp serve - To run the application
+  $ gulp test - To run the unit test cases.
+  $ gulp protractor - To run the e2e test case.
+ 
+* It will open the app in your default browser. 
+
+### Technical Details
+
+Currently following use case is implemented:
+1. Home page - Display a home page with contents and book consultation button
+1. Book consultation page -  Displays a page with required details to be filled by the patient and submit consultation page. Completed with unit test and e2e test cases.
+

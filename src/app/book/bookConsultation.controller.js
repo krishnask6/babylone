@@ -6,7 +6,7 @@
         .controller('BookConsultationController', BookConsultationController);
 
         /** @ngInject */
-        function BookConsultationController($timeout, $log, consultationService) {
+        function BookConsultationController($timeout, $log, consultationService, $uibModal) {
             var vm = this;
 
             /** Service to get the patients/user & releative list & details*/
@@ -27,7 +27,7 @@
             vm.items = ['item1', 'item2', 'item3'];
             vm.open = open;
             vm.updateSelection = updateSelection;
-
+            vm.appointment = {};
             init();
 
             function init(){
@@ -40,7 +40,7 @@
             function open(size) {
                 var modalInstance = $uibModal.open({
                     animation: true,
-                    templateUrl: 'modalTemplate.html',
+                    templateUrl: 'modal.html',
                     controller: 'ModalController',
                     controllerAs: 'vm',
                     windowClass : 'show',
@@ -54,6 +54,7 @@
 
                 modalInstance.result.then(function (selectedItem) {
                     vm.selected = selectedItem;
+                    vm.appointment.doctor = selectedItem.id;
                 }, function () {
                     $log.info('Modal dismissed at: ' + new Date());
                 });
@@ -69,8 +70,32 @@
                 angular.forEach(items, function (item, index) {
                     if (position !== index) {
                         item.selected = false;
+                    } else {
+                        vm.appointment.patient = item.id;
+                        vm.appointment.healthCareProfessional = item.id;
                     }
                 });
+            }
+
+            /**
+             * bookAppointment - method to book an appointment
+             * @desc method to call the service for booking an appointment with the doctor
+             * with the information provided
+            */
+            function bookAppointment() {
+                try {
+                    consultationService.submitAppointment(vm.appointment).then(function (response) {
+                        if(response.error){
+                            vm.msg = response.error;
+                        }else{
+                            vm.msg = response;
+                        }
+                    }, function (error) {
+                        $log.log('error' + error);
+                    });
+                } catch (error) {
+                    $log.error('Error in fetching appointment data:' + error);
+                }
             }
         }
 })();

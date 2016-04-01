@@ -6,7 +6,7 @@
         .service('consultationService', consultationService);
 
     /** @ngInject */
-    function consultationService($http, $q) {
+    function consultationService($http, $q, constant) {
       /** Service to get the patient from the API*/
       this.getPatients = function () {
           var deferred = new $q.defer();
@@ -48,5 +48,28 @@
       this.getGoalsForOwner = function (ownerId) {
           return $http.get('/api/goalsForOwner/' + ownerId);
       };
-    }
+      /**
+       * @name submitAppointment
+       * @desc Method to store the appointment.
+       * @param {Object} payload - information of the requested appointment
+       * @returns {Object} promise.
+       */
+      this.submitAppointment = function(payload) {
+        var deferred = new $q.defer();
+        if (!payload) {
+          throw new Error('payload is invalid');
+        }
+        /** Using temporary JSON files to mock the data */
+        $http({
+          method: 'POST',
+          url: constant.baseUrl + constant.insert,
+          data: angular.toJson(formData)
+        }).then(function (response) {
+          q.resolve(response.data);
+        }, function (error) {
+          q.reject(error.data);
+        });
+        return q.promise;
+      }
+
 })();
