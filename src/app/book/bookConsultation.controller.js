@@ -31,8 +31,10 @@
         function open(size) {
             var modalInstance = $uibModal.open({
                 animation: true,
-                templateUrl: 'modal.html',
+                templateUrl: 'modalTemplate.html',
                 controller: 'ModalController',
+                controllerAs: 'vm',
+                windowClass : 'show',
                 size: size,
                 resolve: {
                     items: function () {
