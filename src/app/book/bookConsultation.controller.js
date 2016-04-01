@@ -12,11 +12,13 @@
             /** Service to get the patients/user & releative list & details*/
             consultationService.getPatients().then(function (data){
                 vm.patients = data;
+                vm.patients[0].selected = true;
             });
 
             /** Service to get the professional health care list & details*/
             consultationService.gethealthCareProfession().then(function (data){
                 vm.healthCareProfessionals = data;
+                vm.healthCareProfessionals[0].selected = true;
             });
 
             /** Service to get the professional health care list & details*/
@@ -32,11 +34,34 @@
             vm.bookAppointment = bookAppointment;
             vm.appointment = {};
             vm.disableSubmitButton = disableSubmitButton;
+            vm.appointmentsSelection = appointmentsSelection;
             init();
 
             function init(){
                 // initialise something here
                 vm.appointment = {};
+            }
+
+            function appointmentsSelection () {
+                var modalInstance = $uibModal.open({
+                    animation: true,
+                    templateUrl: 'modal.html',
+                    controller: 'ModalController as vm',
+                    windowClass : 'show',
+                    size: size,
+                    resolve: {
+                        items: function () {
+                            return vm.selectedDoctor.appointments;
+                        }
+                    }
+                });
+
+                modalInstance.result.then(function (selectedItem) {
+                    vm.appointment.appointment = selectedItem.id;
+                    vm.appointments = selectedItem;
+                }, function () {
+                    $log.info('Modal dismissed at: ' + new Date());
+                });
             }
 
             /** Using ui-bootstrap modal
