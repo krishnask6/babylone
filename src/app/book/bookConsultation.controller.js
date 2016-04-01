@@ -23,6 +23,7 @@
             consultationService.getDoctorDetails().then(function (data){
                 vm.doctors = data;
                 vm.selectedDoctor = vm.doctors[0];
+                vm.appointments = vm.selectedDoctor.appointments[0];
             });
 
             vm.items = ['item1', 'item2', 'item3'];
@@ -58,6 +59,7 @@
                 modalInstance.result.then(function (selectedItem) {
                     vm.appointment.doctor = selectedItem.id;
                     vm.selectedDoctor = selectedItem;
+                    vm.appointments = vm.selectedDoctor.appointments[0];
                 }, function () {
                     $log.info('Modal dismissed at: ' + new Date());
                 });

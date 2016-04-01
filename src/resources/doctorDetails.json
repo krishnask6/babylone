@@ -1,27 +1,82 @@
 [
-    {
-        "id":114,
-        "name":"Dr. John Sabastin",
-        "gender":"Male",
-        "details":"Surgeon"
-    },
-    {
-        "id":115,
-        "name":"Dr. Anitha Samuel",
-        "gender":"Female",
-        "details":"Dentist"
-    },
-    {
-        "id":116,
-        "name":"Dr. Hisenberg",
-        "gender":"Male",
-        "details":"Breaking Bad"
-
-    },
-    {
-        "id":117,
-        "name":"Dr. Dexter",
-        "gender":"Male",
-        "details":"Serial Killer"
-    }
+  {
+    "id":114,
+    "name":"Dr. John Sabastin",
+    "gender":"Male",
+    "details":"Surgeon",
+    "appointments": [
+      {
+        "id":333,
+        "time":"May 30 at 14:00"
+      },
+      {
+        "id":334,
+        "time":"June 02 at 08:00"
+      },
+      {
+        "id":335,
+        "time":"June 06 at 08:00"
+      }
+    ]
+  },
+  {
+    "id":115,
+    "name":"Dr. Anitha Samuel",
+    "gender":"Female",
+    "details":"Dentist",
+    "appointments": [
+      {
+        "id":336,
+        "time":"May 23 at 09:00"
+      },
+      {
+        "id":337,
+        "time":"June 27 at 11:45"
+      },
+      {
+        "id":338,
+        "time":"June 29 at 08:00"
+      }
+    ]
+  },
+  {
+    "id":116,
+    "name":"Dr. Hisenberg",
+    "gender":"Male",
+    "details":"Breaking Bad",
+    "appointments": [
+      {
+        "id":339,
+        "time":"May 13 at 09:00"
+      },
+      {
+        "id":340,
+        "time":"June 17 at 11:45"
+      },
+      {
+        "id":341,
+        "time":"June 20 at 08:00"
+      }
+    ]
+  },
+  {
+    "id":117,
+    "name":"Dr. Dexter",
+    "gender":"Male",
+    "details":"Serial Killer",
+    "appointments": [
+      {
+        "id":342,
+        "time":"April 13 at 09:00"
+      },
+      {
+        "id":343,
+        "time":"May 17 at 11:45"
+      },
+      {
+        "id":344,
+        "time":"May 29 at 10:00"
+      }
+    ]
+  }
 ]
