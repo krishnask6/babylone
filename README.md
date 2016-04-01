@@ -26,7 +26,7 @@ Babylone application written using Angular, node.
 
 * Clone git repo and cd to server folder: 
  ``` 
-  $ git clone https://github.com/sagarbasavaraj/formbuilder
+  $ git clone https://github.com/krishnask6/babylone.git
  ```
   
 * Install required node packages: 
