@@ -32,7 +32,7 @@ Babylone application written using Angular, node.
 * Install required node packages: 
  
  *Client side install
- ```
+
  *Install node pacakages.
   ```
   $npm install
@@ -54,9 +54,9 @@ Babylone application written using Angular, node.
 
 ### Technical Details
  ```
-Currently following use case is implemented:
-1. Home page - Display a home page with contents and book consultation button
-2. Book consultation page -  Displays a page with required details to be filled by the patient and submit consultation page. Completed with unit test and e2e test cases.
+  Currently following use case is implemented:
+  1. Home page - Display a home page with contents and book consultation button
+  2. Book consultation page -  Displays a page with required details to be filled by the patient and submit consultation page. Completed with unit test and e2e test cases.
  ```
 
 
