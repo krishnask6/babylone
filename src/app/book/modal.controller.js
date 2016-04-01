@@ -14,8 +14,9 @@
         vm.cancel = cancel;
 
         vm.selected = selected;
-        function selected () {
-            item: vm.items[0]
+        function selected (item) {
+            item: vm.items[0];
+            $uibModalInstance.close(vm.selected.item);
         }
 
         function ok() {

@@ -36,7 +36,7 @@
     <div class="row">
       <h3>SELECT THE DOCTOR<h3>
       <div class="col-md-3 col-md-offset-5 doctors">
-        <button type="button" class="btn btn-lg btn-success btn-doctor" ng-click="book.open('sm')">DR. PAUL DEVIS</button>
+        <button type="button" class="btn btn-lg btn-success btn-doctor" ng-click="book.open('sm')">{{book.selectedDoctor.name}}</button>
       </div>
     </div>
 
@@ -88,3 +88,23 @@
     </div>
   </div>
 </div>
+<script type="text/ng-template" id="modal.html">
+  <div class="modal-header">
+      <h3 class="modal-title">Select Doctor</h3>
+  </div>
+  <div class="modal-body">
+    <ul>
+      <li ng-repeat="item in vm.items">
+        <!-- <button type="button" ng-click="vm.selected()">{{ item.name }}</button> -->
+        <!-- <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item.name }}</a> -->
+        <button ng-click="vm.selected(item); selected.item = item">{{ item.name }}</button>
+      </li>
+    </ul>
+      Selected: <b>{{ selected.item.name }}</b>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-warning" type="button" ng-click="vm.cancel()">Cancel</button>
+
+  </div>
+</script>
+

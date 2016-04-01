@@ -6,7 +6,7 @@
         .controller('BookConsultationController', BookConsultationController);
 
         /** @ngInject */
-        function BookConsultationController($timeout, $log, consultationService, $uibModal) {
+        function BookConsultationController($timeout, consultationService, $uibModal, $log) {
             var vm = this;
 
             /** Service to get the patients/user & releative list & details*/
@@ -22,6 +22,7 @@
             /** Service to get the professional health care list & details*/
             consultationService.getDoctorDetails().then(function (data){
                 vm.doctors = data;
+                vm.selectedDoctor = vm.doctors[0];
             });
 
             vm.items = ['item1', 'item2', 'item3'];
@@ -44,19 +45,17 @@
                 var modalInstance = $uibModal.open({
                     animation: true,
                     templateUrl: 'modal.html',
-                    controller: 'ModalController',
-                    controllerAs: 'vm',
+                    controller: 'ModalController as vm',
                     windowClass : 'show',
                     size: size,
                     resolve: {
                         items: function () {
-                            return vm.items;
+                            return vm.doctors;
                         }
                     }
                 });
 
                 modalInstance.result.then(function (selectedItem) {
-                    vm.selected = selectedItem;
                     vm.appointment.doctor = selectedItem.id;
                 }, function () {
                     $log.info('Modal dismissed at: ' + new Date());
