@@ -1,40 +1,33 @@
 (function() {
   'use strict';
 
-  describe('controllers', function(){
-    var vm;
-    var $timeout;
+  describe('BookConsultationController', function(){
     var consultationService;
     var controller;
+    var $scope;
+    var $rootScope;
 
     beforeEach(module('babylone'));
-    beforeEach(inject(function(_$controller_, _$timeout_, _$log_, _consultationService_) {
-      vm = _$controller_('BookConsultationController');
-      $timeout = _$timeout_;
+    beforeEach(inject(function(_$controller_, _consultationService_, _$rootScope_) {
+      $rootScope = _$rootScope_;
+      $scope = $rootScope.$new();
       consultationService = _consultationService_;
-      controller = _$controller_('BookConsultationController as vm', {
-        'consultationService': consultationService
+      controller = _$controller_("BookConsultationController as vm", {
+        '$scope': $scope,
+        'consultationService': _consultationService_
       });
+
+
     }));
 
-    it('should have a timestamp creation date', function() {
-      expect(vm.creationDate).toEqual(jasmine.any(Number));
-    });
-
-    it('should define more than 5 awesome things', function() {
-      expect(angular.isArray(vm.awesomeThings)).toBeTruthy();
-      expect(vm.awesomeThings.length === 5).toBeTruthy();
-    });
-
     describe('updateSelection', function () {
-      it('should toggle selection if first item is selected in the list', function () {
+      it('should set the selected patient details when toggling the selection based on the items selected', function () {
+        controller.patients = [{id: 11}, {id: 12}, {id: 13}];
+        controller.appointment = {};
+        console.log('controller',controller);
+        controller.updateSelection(1,[{id: 11}, {id: 12}, {id: 13}],'patients');
+        expect(controller.appointment.patients).toEqual(12);
       });
-
-      it('should set the appointment details when toggling the selection based on the items selected', function () {
-        vm.patients = [{id: 2},{id: 1}];
-        vm.updateSelection(1,[1,2,3],'patients');
-        expect(vm.appointment.patient).toEqual(1);
-      })
     });
 
     describe('bookAppointment function', function () {
@@ -42,6 +35,7 @@
       beforeEach(inject(function (_$q_) {
         $q = _$q_;
       }));
+
       it('should send form data to server', function () {
         serviceDeffer = $q.defer();
         serviceDeffer.resolve('form data saved.');

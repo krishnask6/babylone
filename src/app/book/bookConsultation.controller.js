@@ -48,7 +48,7 @@
                     templateUrl: 'modal.html',
                     controller: 'ModalController as vm',
                     windowClass : 'show',
-                    size: size,
+                    size: 'sm',
                     resolve: {
                         items: function () {
                             return vm.selectedDoctor.appointments;
